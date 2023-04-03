@@ -1,8 +1,16 @@
 import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity } from 'react-native'
 import { Logo } from '../../components/Logo'
 import { Ionicons } from '@expo/vector-icons'
+import { useState } from 'react'
 
 export function Home() {
+  const [ inputValue, setInputValue ] = useState('')
+  
+  function handleSearch() {
+    
+
+  }
+  
   return (
     <SafeAreaView style={styles.container}>
       <Logo />
@@ -12,8 +20,10 @@ export function Home() {
         <TextInput 
           placeholder='Digite o nome da comida...'
           style={styles.input}
+          value={inputValue}
+          onChangeText={(text) => setInputValue(text)}
         />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleSearch}>
           <Ionicons name='search' size={28} color='#4cbe6c' />
         </TouchableOpacity>
       </View>
