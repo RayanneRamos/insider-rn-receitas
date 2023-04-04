@@ -25,7 +25,7 @@ export function Routes() {
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
-              <Ionicons name='home' color='#000' size={size} />
+              return <Ionicons name='home' color='#000' size={size} />
             }
             return <Ionicons name='home-outline' color={color} size={size} />
           }
@@ -37,7 +37,7 @@ export function Routes() {
         options={{
           tabBarIcon: ({ color, size, focused }) => {
             if (focused) {
-              <Ionicons name='heart' color='#ff4141' size={size} />
+              return <Ionicons name='heart' color='#ff4141' size={size} />
             }
 
             return <Ionicons name='heart-outline' color={color} size={size} />
