@@ -4,12 +4,16 @@ import { Ionicons } from '@expo/vector-icons'
 import { useEffect, useState } from 'react'
 import { api } from '../../services/api'
 import { FoodList } from '../../components/FoodList'
+import { useNavigation } from '@react-navigation/native'
 
 export function Home() {
   const [ inputValue, setInputValue ] = useState('')
   const [ foods, setFoods ] = useState([])
+  const navigation = useNavigation()
 
-  function handleSearch() {}
+  function handleSearch() {
+    navigation.navigate('Search')
+  }
 
   useEffect(() => {
     async function fetchApi() {
