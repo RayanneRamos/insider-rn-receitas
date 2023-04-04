@@ -6,7 +6,7 @@ export function FoodList({ data }) {
   const navigation = useNavigation()
   
   function handleNavigate() {
-    navigation.navigate('Details')
+    navigation.navigate('Details', { data: data })
   }
 
   return (
