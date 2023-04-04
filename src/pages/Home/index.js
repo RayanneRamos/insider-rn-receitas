@@ -1,15 +1,22 @@
 import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity } from 'react-native'
 import { Logo } from '../../components/Logo'
 import { Ionicons } from '@expo/vector-icons'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { api } from '../../services/api'
 
 export function Home() {
   const [ inputValue, setInputValue ] = useState('')
-  
-  function handleSearch() {
-    
+  const [ foods, setFoods ] = useState('')
 
-  }
+  function handleSearch() {}
+
+  useEffect(() => {
+    async function fetchApi() {
+      const response = await api.get('/foods')
+    }
+
+    fetchApi()
+  }, [])
   
   return (
     <SafeAreaView style={styles.container}>
