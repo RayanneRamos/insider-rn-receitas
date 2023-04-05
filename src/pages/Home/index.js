@@ -12,7 +12,13 @@ export function Home() {
   const navigation = useNavigation()
 
   function handleSearch() {
-    navigation.navigate('Search')
+    if(!inputValue) {
+      return 
+    }
+
+    let input = inputValue
+    setInputValue('')
+    navigation.navigate('Search', { name: input })
   }
 
   useEffect(() => {
