@@ -23,6 +23,7 @@ export function Search() {
         data={receipes}
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => <FoodList data={item} />}
+        ListEmptyComponent={() => <Text style={styles.text}>Não encontramos o que está buscando...</Text>}
       />
     </View>
   )
@@ -35,5 +36,9 @@ const styles = StyleSheet.create({
     paddingStart: 14,
     paddingEnd: 14,
     paddingTop: 14,
+  },
+
+  text: {
+    fontSize: 16,
   }
 })
