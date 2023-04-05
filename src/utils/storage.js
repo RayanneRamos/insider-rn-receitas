@@ -20,3 +20,16 @@ export async function saveFavorite(key, newItem) {
 
   await AsyncStorage.setItem(key, JSON.stringify(myFavorites))
 }
+
+export async function removeItem(id) {
+  let receipes = await getFavorites('@appreceitas')
+
+  let myFavorites = receipes.filter((item) => {
+    return (
+      item.id !== id
+    )
+  })
+
+  await AsyncStorage.setItem('@appreceitas', JSON.stringify(myFavorites))
+  return myFavorites
+}
