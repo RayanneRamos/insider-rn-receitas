@@ -6,3 +6,17 @@ export async function getFavorites(key) {
   return JSON.parse(favorites) || []
 }
 
+export async function saveFavorite(key, newItem) {
+  let myFavorites = await getFavorites(key) 
+
+  let hasItem = myFavorites.some((item) => item.id === newItem.id)
+
+  if(hasItem) {
+    alert('Esse item já está salvo na sua lista')
+    return
+  }
+
+  myFavorites.push(newItem)
+
+  await AsyncStorage.setItem(key, JSON.stringify(myFavorites))
+}
