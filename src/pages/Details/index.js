@@ -1,13 +1,15 @@
-import { useLayoutEffect } from 'react'
-import { View, Text, StyleSheet, Pressable, ScrollView, Image } from 'react-native'
+import { useLayoutEffect, useState } from 'react'
+import { View, Text, StyleSheet, Pressable, ScrollView, Image, Modal, Share } from 'react-native'
 import { useRoute, useNavigation } from '@react-navigation/native'
 import { Entypo, AntDesign, Feather } from '@expo/vector-icons'
 import { Ingredients } from '../../components/Ingredients'
 import { Instructions } from '../../components/Instructions'
+import { Video } from '../../components/Video'
 
 export function Details() {
   const route = useRoute()
   const navigation = useNavigation()
+  const [ isOpenModal, setIsOpenModal ] = useState(false)
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -24,10 +26,25 @@ export function Details() {
       )
     })
   }, [route.params?.data, navigation])
+
+  function handleOpenVideo() {
+    setIsOpenModal(true);
+  }
+
+  async function shareReceipe() {
+    try {
+      await Share.share({
+        url: 'https://www.github.com/RayanneRamos',
+        message: `Receita: ${route.params?.data.name}\n Vi lá no App Receita Fácil, faça na sua casa também é super fácil de fazer`
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
   
   return (
     <ScrollView contentContainerStyle={{ paddingBottom: 14 }} style={styles.container} showsVerticalScrollIndicator={false}>
-      <Pressable>
+      <Pressable onPress={handleOpenVideo}>
         <View style={styles.playIcon}>
           <AntDesign 
             name='playcircleo' 
@@ -45,7 +62,7 @@ export function Details() {
           <Text style={styles.title}>{route.params?.data.name}</Text>
           <Text style={styles.ingredientsText}>ingredientes ({route.params?.data.total_ingredients})</Text>
         </View>
-        <Pressable>
+        <Pressable onPress={shareReceipe}>
           <Feather 
             name='share-2'
             size={24}
@@ -71,6 +88,13 @@ export function Details() {
           <Instructions key={item.id} data={item} index={index} />
         )
       }) }
+
+      <Modal visible={isOpenModal} animationType='slide'>
+        <Video 
+          handleCloseVideo={() => setIsOpenModal(false)}
+          videoUrl={route.params?.data.video}
+        />
+      </Modal>
     </ScrollView>
   )
 }
