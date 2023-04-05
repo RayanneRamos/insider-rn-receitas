@@ -5,30 +5,56 @@ import { Entypo, AntDesign, Feather } from '@expo/vector-icons'
 import { Ingredients } from '../../components/Ingredients'
 import { Instructions } from '../../components/Instructions'
 import { Video } from '../../components/Video'
+import { isFavorite, saveFavorite, removeItem } from '../../utils/storage'
 
 export function Details() {
   const route = useRoute()
   const navigation = useNavigation()
   const [ isOpenModal, setIsOpenModal ] = useState(false)
+  const [ favorite, setFavorite ] = useState(false)
 
   useLayoutEffect(() => {
+    async function getStatusFavorites() {
+      const receipeFavorite = await isFavorite(route.params?.data)
+      setFavorite(receipeFavorite)
+    }
+
+    getStatusFavorites()
+    
     navigation.setOptions({
       title: route.params?.data ? route.params?.data.name : 'Detalhes da receita',
       headerRight: () => (
-        <Pressable onPress={() => console.log('Testando')}>
-          <Entypo 
-            style={styles.playIcon}
-            name='heart' 
-            size={28} 
-            color='#ff4141' 
-          />
+        <Pressable onPress={() => handleFavoriteReceipe(route.params?.data)}>
+          { favorite ? (
+            <Entypo 
+              name='heart' 
+              size={28} 
+              color='#ff4141' 
+            />
+          ) : (
+            <Entypo 
+              name='heart-outlined' 
+              size={28} 
+              color='#ff4141' 
+            />
+          ) }
         </Pressable>
       )
     })
-  }, [route.params?.data, navigation])
+  }, [route.params?.data, navigation, favorite])
 
   function handleOpenVideo() {
     setIsOpenModal(true);
+  }
+
+  async function handleFavoriteReceipe(receipe) {
+    if(favorite) {
+      await removeItem(receipe.id)
+      setFavorite(false)
+    } else {
+      await saveFavorite('@appreceitas', receipe)
+      setFavorite(true)
+    }
   }
 
   async function shareReceipe() {
