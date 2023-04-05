@@ -33,3 +33,16 @@ export async function removeItem(id) {
   await AsyncStorage.setItem('@appreceitas', JSON.stringify(myFavorites))
   return myFavorites
 }
+
+
+export async function isFavorite(receipe) {
+  let myReceipes = await getFavorites('@appreceitas')
+
+  const favorite = myReceipes.find((item) => item.id === receipe.id)
+
+  if(favorite) {
+    return true
+  } 
+
+  return false
+}
