@@ -1,9 +1,9 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { StackRoutes } from './stackRoutes'
-import { Favorites } from '../pages/Favorites'
-import { Ionicons } from '@expo/vector-icons'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StackRoutes } from './stackRoutes';
+import { Favorites } from '../pages/Favorites';
+import { Ionicons } from '@expo/vector-icons';
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 
 export function Routes() {
   return (
@@ -45,5 +45,5 @@ export function Routes() {
         }}
       />
     </Tab.Navigator>
-  )
+  );
 }

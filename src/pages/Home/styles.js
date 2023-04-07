@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -35,4 +35,4 @@ export const styles = StyleSheet.create({
     height: 54,
     maxWidth: '90%',
   },
-})
+});

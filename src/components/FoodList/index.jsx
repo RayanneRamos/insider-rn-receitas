@@ -1,13 +1,13 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
-import { LinearGradient } from 'expo-linear-gradient'
-import { useNavigation } from '@react-navigation/native'
-import { styles } from './styles'
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+import { styles } from './styles';
 
 export function FoodList({ data }) {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   
   function handleNavigate() {
-    navigation.navigate('Details', { data: data })
+    navigation.navigate('Details', { data: data });
   }
 
   return (
@@ -25,5 +25,5 @@ export function FoodList({ data }) {
         colors={[ 'transparent', 'rgba(0, 0, 0, 0.70)', 'rgba(0, 0, 0, 0.95)' ]}
       />
     </TouchableOpacity>
-  )
+  );
 }

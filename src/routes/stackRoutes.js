@@ -1,10 +1,9 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Home } from '../pages/Home';
+import { Details } from '../pages/Details';
+import { Search } from '../pages/Search';
 
-import { Home } from '../pages/Home'
-import { Details } from '../pages/Details'
-import { Search } from '../pages/Search'
-
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 export function StackRoutes() {
   return (
@@ -25,5 +24,5 @@ export function StackRoutes() {
         options={{ title: 'Veja o que encontramos' }} 
       />
     </Stack.Navigator>
-  )
+  );
 }

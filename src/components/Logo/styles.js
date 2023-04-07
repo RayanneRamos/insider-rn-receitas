@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   logoArea: {
@@ -19,4 +19,4 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
-})
+});

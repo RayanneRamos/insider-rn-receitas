@@ -1,36 +1,36 @@
-import { View, SafeAreaView, TextInput, TouchableOpacity, FlatList } from 'react-native'
-import { Logo } from '../../components/Logo'
-import { Ionicons } from '@expo/vector-icons'
-import { useEffect, useState } from 'react'
-import { api } from '../../services/api'
-import { FoodList } from '../../components/FoodList'
-import { useNavigation } from '@react-navigation/native'
-import { Text as MotiText } from 'moti'
-import { styles } from './styles'
+import { View, SafeAreaView, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import { Logo } from '../../components/Logo';
+import { Ionicons } from '@expo/vector-icons';
+import { useEffect, useState } from 'react';
+import { api } from '../../services/api';
+import { FoodList } from '../../components/FoodList';
+import { useNavigation } from '@react-navigation/native';
+import { Text as MotiText } from 'moti';
+import { styles } from './styles';
 
 export function Home() {
-  const [ inputValue, setInputValue ] = useState('')
-  const [ foods, setFoods ] = useState([])
-  const navigation = useNavigation()
+  const [ inputValue, setInputValue ] = useState('');
+  const [ foods, setFoods ] = useState([]);
+  const navigation = useNavigation();
 
   function handleSearch() {
     if(!inputValue) {
-      return 
+      return;
     }
 
     let input = inputValue
-    setInputValue('')
-    navigation.navigate('Search', { name: input })
+    setInputValue('');
+    navigation.navigate('Search', { name: input });
   }
 
   useEffect(() => {
     async function fetchApi() {
-      const response = await api.get('/foods')
-      setFoods(response.data)
+      const response = await api.get('/foods');
+      setFoods(response.data);
     }
 
-    fetchApi()
-  }, [])
+    fetchApi();
+  }, []);
   
   return (
     <SafeAreaView style={styles.container}>
@@ -89,5 +89,5 @@ export function Home() {
         showsVerticalScrollIndicator={false}
       />
     </SafeAreaView>
-  )
+  );
 }

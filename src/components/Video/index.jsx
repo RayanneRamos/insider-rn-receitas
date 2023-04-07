@@ -1,7 +1,7 @@
-import { Text, TouchableOpacity, SafeAreaView } from 'react-native'
-import { Feather } from '@expo/vector-icons'
-import { WebView } from 'react-native-webview'
-import { styles } from './styles'
+import { Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { WebView } from 'react-native-webview';
+import { styles } from './styles';
 
 export function Video({ handleCloseVideo, videoUrl }) {
   return (
@@ -15,5 +15,5 @@ export function Video({ handleCloseVideo, videoUrl }) {
         source={{ uri: videoUrl }}
       />
     </SafeAreaView>
-  )
+  );
 }

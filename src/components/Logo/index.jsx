@@ -1,6 +1,6 @@
-import { Text } from 'react-native'
-import { View } from 'moti'
-import { styles } from './styles'
+import { Text } from 'react-native';
+import { View } from 'moti';
+import { styles } from './styles';
 
 export function Logo() {
   return (
@@ -21,5 +21,5 @@ export function Logo() {
     >
       <Text style={styles.logo}>Receita Fácil</Text>
     </View>
-  )
+  );
 }

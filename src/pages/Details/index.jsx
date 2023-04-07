@@ -1,26 +1,26 @@
-import { useLayoutEffect, useState } from 'react'
-import { View, Text, StyleSheet, Pressable, ScrollView, Image, Modal, Share } from 'react-native'
-import { useRoute, useNavigation } from '@react-navigation/native'
-import { Entypo, AntDesign, Feather } from '@expo/vector-icons'
-import { Ingredients } from '../../components/Ingredients'
-import { Instructions } from '../../components/Instructions'
-import { Video } from '../../components/Video'
-import { isFavorite, saveFavorite, removeItem } from '../../utils/storage'
-import { styles } from './styles'
+import { useLayoutEffect, useState } from 'react';
+import { View, Text, Pressable, ScrollView, Image, Modal, Share } from 'react-native';
+import { useRoute, useNavigation } from '@react-navigation/native';
+import { Entypo, AntDesign, Feather } from '@expo/vector-icons';
+import { Ingredients } from '../../components/Ingredients';
+import { Instructions } from '../../components/Instructions';
+import { Video } from '../../components/Video';
+import { isFavorite, saveFavorite, removeItem } from '../../utils/storage';
+import { styles } from './styles';
 
 export function Details() {
-  const route = useRoute()
-  const navigation = useNavigation()
-  const [ isOpenModal, setIsOpenModal ] = useState(false)
-  const [ favorite, setFavorite ] = useState(false)
+  const route = useRoute();
+  const navigation = useNavigation();
+  const [ isOpenModal, setIsOpenModal ] = useState(false);
+  const [ favorite, setFavorite ] = useState(false);
 
   useLayoutEffect(() => {
     async function getStatusFavorites() {
-      const receipeFavorite = await isFavorite(route.params?.data)
-      setFavorite(receipeFavorite)
+      const receipeFavorite = await isFavorite(route.params?.data);
+      setFavorite(receipeFavorite);
     }
 
-    getStatusFavorites()
+    getStatusFavorites();
     
     navigation.setOptions({
       title: route.params?.data ? route.params?.data.name : 'Detalhes da receita',
@@ -50,11 +50,11 @@ export function Details() {
 
   async function handleFavoriteReceipe(receipe) {
     if(favorite) {
-      await removeItem(receipe.id)
-      setFavorite(false)
+      await removeItem(receipe.id);
+      setFavorite(false);
     } else {
-      await saveFavorite('@appreceitas', receipe)
-      setFavorite(true)
+      await saveFavorite('@appreceitas', receipe);
+      setFavorite(true);
     }
   }
 
@@ -63,9 +63,9 @@ export function Details() {
       await Share.share({
         url: 'https://www.github.com/RayanneRamos',
         message: `Receita: ${route.params?.data.name}\n Vi lá no App Receita Fácil, faça na sua casa também é super fácil de fazer`
-      })
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
   
@@ -115,7 +115,6 @@ export function Details() {
           <Instructions key={item.id} data={item} index={index} />
         )
       }) }
-
       <Modal visible={isOpenModal} animationType='slide'>
         <Video 
           handleCloseVideo={() => setIsOpenModal(false)}
@@ -123,5 +122,5 @@ export function Details() {
         />
       </Modal>
     </ScrollView>
-  )
+  );
 }
