@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -9,5 +9,26 @@ export const styles = StyleSheet.create({
     paddingTop: 36,
   },
 
-  title: {},
-})
+  title: {
+    fontSize: 18,
+    marginTop: 14,
+    fontWeight: 'bold',
+    color: '#000',
+    marginBottom: 4,
+  },
+
+  notFavorites: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingStart: 30,
+    paddingTop: 50,
+  },
+
+  subtitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    paddingTop: 20,
+    textAlign: 'center',
+  },
+});
