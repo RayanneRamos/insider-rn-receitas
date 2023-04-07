@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { getFavorites } from '../../utils/storage'
 import { useIsFocused } from '@react-navigation/native'
 import { FoodList } from '../../components/FoodList'
+import { styles } from './styles'
 
 export function Favorites() {
   const [ receipes, setReceipes ] = useState([])
@@ -44,17 +45,3 @@ export function Favorites() {
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#f3f9ff',
-    flex: 1,
-    paddingStart: 14,
-    paddingEnd: 14,
-    paddingTop: 36,
-  },
-
-  title: {
-
-  },
-})
