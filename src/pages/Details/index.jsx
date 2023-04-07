@@ -6,6 +6,7 @@ import { Ingredients } from '../../components/Ingredients'
 import { Instructions } from '../../components/Instructions'
 import { Video } from '../../components/Video'
 import { isFavorite, saveFavorite, removeItem } from '../../utils/storage'
+import { styles } from './styles'
 
 export function Details() {
   const route = useRoute()
@@ -86,7 +87,7 @@ export function Details() {
       <View style={styles.headerDetails}>
         <View>
           <Text style={styles.title}>{route.params?.data.name}</Text>
-          <Text style={styles.ingredientsText}>ingredientes ({route.params?.data.total_ingredients})</Text>
+          <Text style={styles.ingredientText}>ingredientes ({route.params?.data.total_ingredients})</Text>
         </View>
         <Pressable onPress={shareReceipe}>
           <Feather 
@@ -102,7 +103,7 @@ export function Details() {
         )
       }) }
       <View style={styles.instructionArea}>
-        <Text style={styles.instructionsText}>Modo de preparo</Text>
+        <Text style={styles.instructionText}>Modo de preparo</Text>
         <Feather 
           name='arrow-down'
           size={24}
@@ -124,64 +125,3 @@ export function Details() {
     </ScrollView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#f3f9ff',
-    paddingTop: 14,
-    paddingEnd: 14,
-    paddingStart: 14,
-  },
-
-  image: {
-    height: 200,
-    borderRadius: 14,
-    width: '100%',
-  },
-
-  playIcon: {
-    position: 'absolute',
-    zIndex: 9,
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  headerDetails: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 14,
-  },
-
-  title: {
-    fontSize: 18,
-    marginTop: 14,
-    fontWeight: 'bold',
-    color: '#000',
-    marginBottom: 4,
-  },
-
-  ingredientsTitle: {
-    marginBottom: 14,
-    fontSize: 16,
-  },
-
-  instructionArea: {
-    backgroundColor: '#4cbe6c',
-    flexDirection: 'row',
-    padding: 8,
-    borderRadius: 4,
-    marginBottom: 14,
-  },
-
-  instructionsText: {
-    fontSize: 18,
-    fontWeight: 500,
-    color: '#fff',
-    marginRight: 8,
-  },
-})
