@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity, FlatList } from 'react-native'
+import { View, SafeAreaView, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import { Logo } from '../../components/Logo'
 import { Ionicons } from '@expo/vector-icons'
 import { useEffect, useState } from 'react'
@@ -6,6 +6,7 @@ import { api } from '../../services/api'
 import { FoodList } from '../../components/FoodList'
 import { useNavigation } from '@react-navigation/native'
 import { Text as MotiText } from 'moti'
+import { styles } from './styles'
 
 export function Home() {
   const [ inputValue, setInputValue ] = useState('')
@@ -90,40 +91,3 @@ export function Home() {
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f3f9ff',
-    paddingTop: 36,
-    paddingStart: 14,
-    paddingEnd: 14,
-  },
-
-  title: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    color: '#0e0e0e',
-  },
-
-  form: {
-    backgroundColor: '#fff',
-    width: '100%',
-    borderRadius: 8,
-    marginTop: 16,
-    marginBottom: 16,
-    borderWidth: 1,
-    borderColor: '#ececec',
-    paddingLeft: 8,
-    paddingRight: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-
-  input: {
-    width: '90%',
-    height: 54,
-    maxWidth: '90%'
-  },
-})

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, FlatList } from 'react-native'
+import { View, Text, SafeAreaView, FlatList } from 'react-native'
 import { useState, useEffect } from 'react'
 import { getFavorites } from '../../utils/storage'
 import { useIsFocused } from '@react-navigation/native'
