@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, FlatList } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import { useRoute } from '@react-navigation/native'
 import { api } from '../../services/api'
 import { FoodList } from '../../components/FoodList'
+import { styles } from './styles'
 
 export function Search() {
   const route = useRoute()
@@ -28,17 +29,3 @@ export function Search() {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f3f9ff',
-    paddingStart: 14,
-    paddingEnd: 14,
-    paddingTop: 14,
-  },
-
-  text: {
-    fontSize: 16,
-  }
-})
