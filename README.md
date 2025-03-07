@@ -29,7 +29,7 @@
 4. **Remover receitas favoritas**: permitindo gerenciar a lista de favoritos conforme necessário
 5. **Interface mobile intuitiva**: desenvolvida com React Native, proporcionando uma experiência de usuário agradável
 
-## 🧪 Technologies
+## 🧪 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnolgias:
 
