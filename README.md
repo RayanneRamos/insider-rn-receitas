@@ -21,6 +21,14 @@
 - [x] Aula 03 | Dando vida ao projeto
 - [x] Aula 04 | Próximo nível
 
+## 🌟 Funcionalidades
+
+1. **Pesquisa de receitas**: permitindo ao usuário encontrar facilmente o que deseja cozinhar
+2. **Listagem de receitas**: permitindo aos usuários navegar por diversas opções 
+3. **Salvar receitas favoritas**: para ter fácil acesso às suas opções preferidas
+4. **Remover receitas favoritas**: permitindo gerenciar a lista de favoritos conforme necessário
+5. **Interface mobile intuitiva**: desenvolvida com React Native, proporcionando uma experiência de usuário agradável
+
 ## 🧪 Technologies
 
 Esse projeto foi desenvolvido com as seguintes tecnolgias:
